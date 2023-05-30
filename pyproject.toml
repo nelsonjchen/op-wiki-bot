@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "op-wiki-bot"
+version = "0.1.0"
+description = ""
+authors = ["Nelson Chen <crazysim@gmail.com>"]
+readme = "README.md"
+packages = [{include = "op_wiki_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.0.184"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
