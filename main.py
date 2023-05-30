@@ -3,7 +3,7 @@ import streamlit as st
 from streamlit_chat import message
 import faiss
 from langchain import OpenAI
-from langchain.chains import RetrievalQAWithSourcesChain
+from langchain.chains.qa_with_sources.vector_db import VectorDBQAWithSourcesChain
 import pickle
 
 # Load the LangChain.
@@ -15,13 +15,13 @@ with open("faiss_store.pkl", "rb") as f:
 store.index = index
 chain = VectorDBQAWithSourcesChain.from_llm(llm=OpenAI(
     temperature=0,
-    model_name="gpt-3.5-turbo",
+    model_name="gpt-3.5-turbo"
 ), vectorstore=store)
 
 
 # From here down is all the StreamLit UI.
-st.set_page_config(page_title="OP QA Bot", page_icon=":robot:")
-st.header("OP QA Bot")
+st.set_page_config(page_title="QA Bot", page_icon=":robot:")
+st.header("QA Bot")
 
 if "generated" not in st.session_state:
     st.session_state["generated"] = []
